@@ -2,9 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 function createnotes(body, notesarray) {
+    notesarray.push(body)
     fs.writeFileSync(
         path.join(__dirname, '../../../db/db.json'),
-        JSON.stringify({ notesarray.push(body) }, null, 2)
+        JSON.stringify({ notesarray }, null, 2)
     );
 
     return body;
