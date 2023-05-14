@@ -7,8 +7,8 @@ const htmlRoutes = htmlrouter();
 
 function apirouter() {
     const router = express.Router();
-    const { createnotes, deletenote } = require(`Develop/public/assets/js/notes.js`);
-    let { notesarray } = require('Develop/db/db.json');
+    const { createnotes, deletenote } = require(`./Develop/public/assets/js/notes.js`);
+    let { notesarray } = require('./Develop/db/db.json');
 
     router.get('/notes', (req, res) => {
         res.json(notesarray);
@@ -33,15 +33,15 @@ function htmlrouter() {
     const router = express.Router();
 
     router.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, `Develop/public/index.html`));
+        res.sendFile(path.join(__dirname, `./Develop/public/index.html`));
     });
 
     router.get('/notes', (req, res) => {
-        res.sendFile(path.join(__dirname, `Develop/public/notes.html`));
+        res.sendFile(path.join(__dirname, `./Develop/public/notes.html`));
     });
 
     router.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, `Develop/public/index.html`));
+        res.sendFile(path.join(__dirname, `./Develop/public/index.html`));
     });
 
     return router;
